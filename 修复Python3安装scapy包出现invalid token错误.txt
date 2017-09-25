@@ -1,0 +1,13 @@
+  近期在python3.6上安装部分模块都出现   
+     os.chmod(fname, 0755）                      ^
+    SyntaxError: invalid token
+
+   这种类似的问题，找了很久，查了很多资料，后来发现
+    python3   os.chmo('/root/test.txt',0744) 会报错  SyntaxError: invalid token
+    python3 中必须用 0o744 这样的方式，数字0加字母o
+   os.chmod('/root/test.txt',0o744) 这样子的
+
+   
+   python setup.py install
+   
+   所以以后安装要把setup.py 中的os.chmod修改，这样就只能源码下安装了，不能用pip这种工具了。。。。
